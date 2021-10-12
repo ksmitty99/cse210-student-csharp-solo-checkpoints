@@ -15,6 +15,7 @@ namespace _05_hide_and_seek
         public int _hidingSpot;
         public List<int> _distance;
 
+        public int seekerLocation;
         /// <summary>
         /// Initializes the location of the hider to a random location 1-1000.
         /// Also initializes the list of distances to be a new, empty list.
@@ -58,18 +59,19 @@ namespace _05_hide_and_seek
             {
                 hint = "I think I'll Just take a nap -.-";
             }
-            else {
+            else 
+            {
                 //found
                 if (IsFound())
                 {
                     hint = "Oh darn! You found me!";
                 }
                 //closer
-                else if (_distance[_distance.Count - 1] > _distance[_distance.Count - 2])
+                else if (seekerLocation < _hidingSpot)
                 {
                     hint = "Getting colder ^.^";
                 }
-                else
+                else if (seekerLocation > _hidingSpot)
                 {
                     hint = "Getting Warmer! >.<";
                 }
@@ -83,7 +85,7 @@ namespace _05_hide_and_seek
         /// <returns>True if the hider has been found.</returns>
         public bool IsFound()
         {
-            return _distance[_distance.Count - 1] == 0;
+            return (seekerLocation == _hidingSpot);
         }
     }
 }
