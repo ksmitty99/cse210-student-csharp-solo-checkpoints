@@ -12,14 +12,20 @@ namespace _05_hide_and_seek
     public class Hider
     {
         // TODO: Add any member variables here
+        public int _hidingSpot;
+        public List<int> _distance;
 
+        public int seekerLocation;
         /// <summary>
         /// Initializes the location of the hider to a random location 1-1000.
         /// Also initializes the list of distances to be a new, empty list.
         /// </summary>
         public Hider()
         {
-            throw new NotImplementedException();
+            Random randomGenerator = new Random();
+            _hidingSpot = randomGenerator.Next(1,1001);
+
+            _distance= new List<int>();
         }
 
         /// <summary>
@@ -29,7 +35,10 @@ namespace _05_hide_and_seek
         /// <param name="seekerLocation">The current location of the seeker.</param>
         public void Watch(int seekerLocation)
         {
-            throw new NotImplementedException();
+            // Find the distance from the Hiding Spot and the seekers guess
+            int seekerDistance = (_hidingSpot - seekerLocation);
+
+            _distance.Add(seekerDistance);
         }
 
         /// <summary>
@@ -43,7 +52,28 @@ namespace _05_hide_and_seek
         /// <returns>The hint message</returns>
         public string GetHint()
         {
-            throw new NotImplementedException();
+            string hint = "";
+
+            //Not able to tell if warmer or colder
+            if (_distance.Count <2)
+            {
+                hint = "I think I'll Just take a nap -.-";
+            }
+            //found
+            if (IsFound())
+            {
+                hint = "Oh darn! You found me!";
+            }
+            //closer
+            else if (seekerLocation < _hidingSpot)
+            {
+                hint = "Getting colder ^.^";
+            }
+            else if (seekerLocation > _hidingSpot)
+            {
+                hint = "Getting Warmer! >.<";
+            }
+            return hint;
         }
 
         /// <summary>
@@ -52,7 +82,7 @@ namespace _05_hide_and_seek
         /// <returns>True if the hider has been found.</returns>
         public bool IsFound()
         {
-            throw new NotImplementedException();
+            return (seekerLocation == _hidingSpot);
         }
     }
 }
