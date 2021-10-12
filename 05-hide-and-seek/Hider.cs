@@ -60,7 +60,7 @@ namespace _05_hide_and_seek
                 hint = "I think I'll Just take a nap -.-";
             }
             //found
-            if (IsFound())
+            if (seekerLocation == _hidingSpot)
             {
                 hint = "Oh darn! You found me!";
             }
