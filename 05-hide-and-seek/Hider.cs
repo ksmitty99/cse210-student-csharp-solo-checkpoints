@@ -14,8 +14,6 @@ namespace _05_hide_and_seek
         // TODO: Add any member variables here
         public int _hidingSpot;
         public List<int> _distance;
-
-        public int seekerLocation;
         /// <summary>
         /// Initializes the location of the hider to a random location 1-1000.
         /// Also initializes the list of distances to be a new, empty list.
@@ -36,7 +34,7 @@ namespace _05_hide_and_seek
         public void Watch(int seekerLocation)
         {
             // Find the distance from the Hiding Spot and the seekers guess
-            int seekerDistance = (_hidingSpot - seekerLocation);
+            int seekerDistance = Math.Abs(_hidingSpot - seekerLocation);
 
             _distance.Add(seekerDistance);
         }
