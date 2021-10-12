@@ -67,11 +67,11 @@ namespace _05_hide_and_seek
                     hint = "Oh darn! You found me!";
                 }
                 //closer
-                else if (seekerLocation < _hidingSpot)
+                else if (_distance[_distance.Count - 1] > _distance[_distance.Count - 2])
                 {
                     hint = "Getting colder ^.^";
                 }
-                else if (seekerLocation > _hidingSpot)
+                else
                 {
                     hint = "Getting Warmer! >.<";
                 }
@@ -85,7 +85,7 @@ namespace _05_hide_and_seek
         /// <returns>True if the hider has been found.</returns>
         public bool IsFound()
         {
-            return (seekerLocation == _hidingSpot);
+            return _distance[_distance.Count - 1] == 0;
         }
     }
 }
