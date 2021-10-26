@@ -9,7 +9,7 @@ namespace _07_snake
     /// </summary>
     public class OutputService
     {
-        private Raylib_cs.Color _backgroundColor = Raylib_cs.Color.WHITE;
+        private Raylib_cs.Color _backgroundColor = Raylib_cs.Color.BLACK;
 
         public OutputService()
         {
@@ -65,7 +65,7 @@ namespace _07_snake
         /// <param name="height"></param>
         public void DrawBox(int x, int y, int width, int height)
         {
-            Raylib.DrawRectangle(x, y, width, height, Raylib_cs.Color.BLUE);            
+            Raylib.DrawRectangle(x, y, width, height, Raylib_cs.Color.RED);            
         }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace _07_snake
 
             if (darkText)
             {
-                color = Raylib_cs.Color.BLACK;
+                color = Raylib_cs.Color.WHITE;
             }
 
             Raylib.DrawText(text,
