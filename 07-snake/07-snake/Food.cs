@@ -22,12 +22,12 @@ namespace _07_snake
         {
             Random rnd = new Random();
             _points = rnd.Next(1,10);
-            _string = _points.ToString();
+            _text = _points.ToString();
 
             int x = rnd.Next(0,Constants.MAX_X);
-            int x = rnd.Next(0,Constants.MAX_Y);
+            int y = rnd.Next(0,Constants.MAX_Y);
 
-            _place = new Point(x,y);
+            _position = new Point(x,y);
         }
     }
  
